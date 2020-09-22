@@ -1,4 +1,4 @@
-package com.arjun.octokit.db
+package com.arjun.octokit.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

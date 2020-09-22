@@ -1,6 +1,6 @@
 package com.arjun.octokit.di
 
-import androidx.viewbinding.BuildConfig
+import com.arjun.octokit.BuildConfig
 import com.arjun.octokit.GithubApi
 import dagger.Module
 import dagger.Provides

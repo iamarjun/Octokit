@@ -7,13 +7,13 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class License(
     @Json(name = "key")
-    val key: String,
+    var key: String,
     @Json(name = "name")
-    val name: String,
+    var name: String,
     @Json(name = "node_id")
-    val nodeId: String,
+    var nodeId: String,
     @Json(name = "spdx_id")
-    val spdxId: String,
+    var spdxId: String,
     @Json(name = "url")
-    val url: String
+    var url: String
 )

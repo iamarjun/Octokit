@@ -7,9 +7,9 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class Permissions(
     @Json(name = "admin")
-    val admin: Boolean,
+    var admin: Boolean,
     @Json(name = "pull")
-    val pull: Boolean,
+    var pull: Boolean,
     @Json(name = "push")
-    val push: Boolean
+    var push: Boolean
 )

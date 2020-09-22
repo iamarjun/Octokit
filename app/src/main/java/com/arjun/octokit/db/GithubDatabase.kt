@@ -4,13 +4,16 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.arjun.octokit.model.GithubResponseItem
+import com.arjun.octokit.model.RemoteKeys
 
 @Database(
     entities = [GithubResponseItem::class, RemoteKeys::class],
     version = 1,
     exportSchema = false
 )
+@TypeConverters(Converter::class)
 abstract class GithubDatabase : RoomDatabase() {
 
     abstract fun githubRepo(): GithubDao

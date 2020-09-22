@@ -7,8 +7,8 @@ import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
 import com.arjun.octokit.GithubApi
 import com.arjun.octokit.db.GithubDatabase
-import com.arjun.octokit.db.RemoteKeys
 import com.arjun.octokit.model.GithubResponseItem
+import com.arjun.octokit.model.RemoteKeys
 import retrofit2.HttpException
 import java.io.IOException
 import java.io.InvalidObjectException

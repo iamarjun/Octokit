@@ -1,6 +1,5 @@
 package com.arjun.octokit.repository
 
-import android.util.Log
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
@@ -21,12 +20,9 @@ class GithubRepository(
      * Search repositories whose names match the query, exposed as a stream of data that will emit
      * every time we get more data from the network.
      */
-    fun getSearchResultStream(query: String): Flow<PagingData<GithubResponseItem>> {
-        Log.d("GithubRepository", "New query: $query")
+    fun getSearchResultStream(): Flow<PagingData<GithubResponseItem>> {
 
-        // appending '%' so we can allow other characters to be before and after the query string
-        val dbQuery = "%${query.replace(' ', '%')}%"
-        val pagingSourceFactory = { githubDatabase.githubRepo().reposByName(dbQuery) }
+        val pagingSourceFactory = { githubDatabase.githubRepo().getRepos() }
 
         return Pager(
             config = PagingConfig(pageSize = NETWORK_PAGE_SIZE, enablePlaceholders = false),
