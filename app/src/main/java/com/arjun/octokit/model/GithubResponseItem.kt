@@ -1,9 +1,12 @@
 package com.arjun.octokit.model
 
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
+@Entity(tableName = "github")
 @JsonClass(generateAdapter = true)
 data class GithubResponseItem(
     @Json(name = "archive_url")
@@ -78,6 +81,7 @@ data class GithubResponseItem(
     val hooksUrl: String,
     @Json(name = "html_url")
     val htmlUrl: String,
+    @PrimaryKey
     @Json(name = "id")
     val id: Int,
     @Json(name = "issue_comment_url")
