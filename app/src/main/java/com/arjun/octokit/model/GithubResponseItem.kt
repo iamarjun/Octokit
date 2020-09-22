@@ -13,15 +13,15 @@ data class GithubResponseItem(
     @Json(name = "id")
     var id: Int,
     @Json(name = "description")
-    var description: String,
+    var description: String?,
     @Json(name = "full_name")
-    var fullName: String,
+    var fullName: String?,
     @Json(name = "license")
-    var license: License,
+    var license: License?,
     @Json(name = "name")
-    var name: String,
+    var name: String?,
     @Json(name = "open_issues_count")
-    var openIssuesCount: Int,
+    var openIssuesCount: Int?,
     @Json(name = "permissions")
-    var permissions: Permissions,
+    var permissions: Permissions?,
 )

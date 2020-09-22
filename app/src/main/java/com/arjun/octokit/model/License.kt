@@ -15,5 +15,5 @@ data class License(
     @Json(name = "spdx_id")
     var spdxId: String,
     @Json(name = "url")
-    var url: String
+    var url: String?
 )

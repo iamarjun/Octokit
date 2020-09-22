@@ -11,7 +11,7 @@ class Converter {
         input?.let { Moshi.Builder().build().adapter(License::class.java).fromJson(it) }
 
     @TypeConverter
-    fun licenseToString(input: License): String? =
+    fun licenseToString(input: License?): String? =
         Moshi.Builder().build().adapter(License::class.java).toJson(input)
 
     @TypeConverter
@@ -19,6 +19,6 @@ class Converter {
         input?.let { Moshi.Builder().build().adapter(Permissions::class.java).fromJson(it) }
 
     @TypeConverter
-    fun permissionsToString(input: Permissions): String? =
+    fun permissionsToString(input: Permissions?): String? =
         Moshi.Builder().build().adapter(Permissions::class.java).toJson(input)
 }

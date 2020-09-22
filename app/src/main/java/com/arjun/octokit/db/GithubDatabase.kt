@@ -10,7 +10,7 @@ import com.arjun.octokit.model.RemoteKeys
 
 @Database(
     entities = [GithubResponseItem::class, RemoteKeys::class],
-    version = 1,
+    version = 3,
     exportSchema = false
 )
 @TypeConverters(Converter::class)
@@ -36,6 +36,7 @@ abstract class GithubDatabase : RoomDatabase() {
 
         private fun buildDatabase(context: Context): GithubDatabase =
             Room.databaseBuilder(context.applicationContext, GithubDatabase::class.java, DB_NAME)
+                .fallbackToDestructiveMigration()
                 .build()
     }
 }
