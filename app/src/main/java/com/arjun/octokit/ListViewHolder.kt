@@ -3,10 +3,9 @@ package com.arjun.octokit
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
+import com.arjun.octokit.databinding.GithubItemBinding
 import com.arjun.octokit.model.GithubResponseItem
-import kotlinx.android.synthetic.main.recipe_item.view.*
 
 class ListViewHolder(
     itemView: View,
@@ -14,19 +13,26 @@ class ListViewHolder(
 ) :
     RecyclerView.ViewHolder(itemView) {
 
-    private var title: AppCompatTextView = itemView.recipe_title
-    private var publisher: AppCompatTextView = itemView.recipe_publisher
-    private var socialScore: AppCompatTextView = itemView.recipe_social_rating
+    private val binding: GithubItemBinding = GithubItemBinding.bind(itemView)
 
     fun bind(item: GithubResponseItem?) {
         item?.let { githubResponseItem ->
-            itemView.setOnClickListener {
-                interaction?.onItemSelected(absoluteAdapterPosition, githubResponseItem)
+            binding.apply {
+                root.setOnClickListener {
+                    interaction?.onItemSelected(absoluteAdapterPosition, githubResponseItem)
+                }
+                repoName.text = githubResponseItem.name
+                repoDescription.text = githubResponseItem.description
+                repoLicense.text = githubResponseItem.license?.name
+                repoIssues.text = githubResponseItem.openIssuesCount.toString()
+                repoForks.text = githubResponseItem.forksCount.toString()
+                repoStars.text = githubResponseItem.stargazersCount.toString()
+                repoPermission.text = """
+                    Admin: ${githubResponseItem.permissions?.admin} 
+                    Pull: ${githubResponseItem.permissions?.pull} 
+                    Push: ${githubResponseItem.permissions?.push} 
+                """.trimIndent()
             }
-
-            title.text = githubResponseItem.fullName
-            publisher.text = githubResponseItem.description
-            socialScore.text = githubResponseItem.openIssuesCount.toString()
         }
     }
 
@@ -37,7 +43,7 @@ class ListViewHolder(
             interaction: Interaction?
         ): ListViewHolder {
             val view =
-                LayoutInflater.from(parent.context).inflate(R.layout.recipe_item, parent, false)
+                LayoutInflater.from(parent.context).inflate(R.layout.github_item, parent, false)
             return ListViewHolder(view, interaction)
         }
     }

@@ -18,7 +18,7 @@ class GithubAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (getItemViewType(position)) {
-            R.layout.recipe_item -> (holder as ListViewHolder).bind(getItem(position))
+            R.layout.github_item -> (holder as ListViewHolder).bind(getItem(position))
         }
     }
 
@@ -33,7 +33,7 @@ class GithubAdapter(
     }
 
     override fun getItemViewType(position: Int): Int {
-        return R.layout.recipe_item
+        return R.layout.github_item
     }
 
     companion object {

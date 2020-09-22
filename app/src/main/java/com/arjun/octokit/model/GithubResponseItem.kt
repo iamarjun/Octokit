@@ -24,4 +24,8 @@ data class GithubResponseItem(
     var openIssuesCount: Int?,
     @Json(name = "permissions")
     var permissions: Permissions?,
+    @Json(name = "stargazers_count")
+    var stargazersCount: Int?,
+    @Json(name = "forks_count")
+    var forksCount: Int?,
 )
